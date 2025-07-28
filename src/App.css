@@ -1,0 +1,38 @@
+.App {
+  text-align: center;
+}
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--palette-default-surface-1);
+  /* font-size: calc(10px + 2vmin); */
+  /* color: var(--palette-default-active); */
+}
+.input-div {
+  height: 40vh;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.input-div form {
+  width: 60%;
+  box-shadow: var(--elevation-medium);
+  background-color: var(--palette-default-surface-2);
+  border-radius: var(--size-xlarge);
+  padding: var(--size-scalable-10);
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+.output-div {
+  width: 100%;
+  height: 80vh;
+  background-color: var(--palette-default-surface-3);
+}
