@@ -7,7 +7,6 @@ import { DefaultHorizontalNav } from './components/HorizontalNav.tsx';
 const App = () => {
   return (
     <div className="App">
-      
       <DefaultHorizontalNav />
       <header className="App-header">
         <InputDiv />

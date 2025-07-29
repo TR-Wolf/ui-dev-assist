@@ -4,6 +4,8 @@ const filePath = '/passwordInput.txt'
 
 
 const OutputDiv = () => {
+
+    //TEMP FOR SIMMING FETCHED CODE
     const [code, setCode] = useState("no code found");
     // useEffect(() => {
     fetch(filePath)
@@ -11,10 +13,14 @@ const OutputDiv = () => {
         .then(setCode)
         .catch((err) => console.error('Error loading code:', err));
         // }, [filePath]);
+    
+    const disp = [<CodeContainer code={code} />]
+    // const disp = [];
     return (
         <div className="output-div">
-            <h1>Generated code will appear here.</h1>
-            <CodeContainer code={code} />
+            {disp.map(component => 
+                <>{component}</>
+            )}
         </div>
     );
 };
