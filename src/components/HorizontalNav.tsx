@@ -116,7 +116,7 @@ export const DefaultHorizontalNav = () => {
                     </UtilityFragment>
                     <UtilityFragment vFlex vGap={16}>
                         <Link
-                            aria-label="Visa UI Design Assistant"
+                            aria-label="Visa UI Development Assistant"
                             href="./horizontal-navigation"
                             id={`${id}-home-link`}
                             noUnderline
@@ -126,7 +126,7 @@ export const DefaultHorizontalNav = () => {
                             <NavAppName>
                                 <Utility
                                     // vContainerHide="xs"
-                                    element={<Typography variant="headline-3">UI Design Assistant</Typography>}
+                                    element={<Typography variant="headline-3">UI Developement Assistant</Typography>}
                                 />
                             </NavAppName>
                         </Link>
