@@ -1,0 +1,20 @@
+{
+  "frameworks": [
+    {
+      "framework": "angular",
+      "components": []
+    },
+    {
+      "framework": "react",
+      "components": []
+    },
+    {
+      "framework": "flutter",
+      "components": []
+    },
+    {
+      "framework": "css",
+      "components": []
+    }
+  ]
+}
