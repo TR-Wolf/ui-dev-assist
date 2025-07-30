@@ -13,11 +13,11 @@ const App = () => {
   // const addComponent = (components: string[]) => {
   //     setOutput(components);
   // }
-  
+
   //Form Events
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    
+    // if (input.length === 0) return;
     try {
       const response = await fetch('/.netlify/functions/process-ui-request', {
         method: 'POST',
@@ -48,16 +48,16 @@ const App = () => {
     <div className="App">
       <DefaultHorizontalNav />
       <header className="App-header">
-        <InputDiv 
-          input={input} 
-          setInput={setInput} 
+        <InputDiv
+          input={input}
+          setInput={setInput}
           onSubmit={onSubmit}
           clearOutput={clearOutput}
         />
-        <OutputDiv 
+        <OutputDiv
           output={output}
         />
-        
+
       </header>
     </div>
   );

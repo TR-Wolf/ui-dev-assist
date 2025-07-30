@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // From a google search
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -14,7 +14,39 @@ export const SmallUiIconButton = () => {
   );
 };
 
-const CodeContainer = ({code}) => {
+
+
+const CodeContainer = ({query}) => {
+  const [code, setCode] = useState('code');
+  //Fetch data from Visa Product Design System Website
+  useEffect(() => {
+    try {
+      fetch('/.netlify/functions/component', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({query}),
+        // body: JSON.stringify({ input }),
+      }).then(response =>{
+        if (!response.ok) {
+          console.log(`HTTP error! status: ${response.status}`);
+          return {"code" : "Could not fetch code for this component."};
+        } else {
+          return response.json();
+        }
+      }).then(data => {
+        setCode(data.code)
+      })
+
+    } catch (err) {
+      console.error('Error processing UI request:', err);
+    }
+  },[query]);
+  
+
+
+
   //lambda function for copying code
   const handleCopy = () => {
     navigator.clipboard.writeText(code)

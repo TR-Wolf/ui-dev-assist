@@ -3,23 +3,17 @@ import CodeContainer from './CodeContainer.tsx';
 
 const OutputDiv = ({ output }: { output: string[] }) => {
 
-    const fetchQuery = (query: string) => {
-        console.log("Fetching " + query)
-        let code = "This should be replaced with code later"
-        return renderCodeContainer(code);
+    const renderCodeContainer = (query: string, index) => {
+        return <CodeContainer query={query} key={index} />;
     }
-
-    const renderCodeContainer = (code: string) => {
-        return <CodeContainer code={code} />;
-    }
-
 
     return (
         <div className="output-div">
             {
-            output.map((query: string) => 
-                fetchQuery(query)
-            )}
+            output.map((query: string, index) => 
+                renderCodeContainer(query, index)
+            )
+            }
         </div>
     );
 };

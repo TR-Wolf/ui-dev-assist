@@ -9,9 +9,7 @@ export const CustomFormInput = ({input, setInput, onSubmit, clearOutput}) => {
   
   //To maintain input as a state variable we need to handle changes
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const newInput = event.target.value;
-    console.log("input updating")
-    setInput(newInput);
+    setInput(event.target.value);
   };
 
   return (
@@ -24,7 +22,7 @@ export const CustomFormInput = ({input, setInput, onSubmit, clearOutput}) => {
           id={id} 
           name={id} 
           type="text" 
-          placeholder="What UI would you like to build?" 
+          placeholder="Describe the UI you would like to build?" 
           value={input}
           onChange={handleChange}
           />
@@ -35,6 +33,7 @@ export const CustomFormInput = ({input, setInput, onSubmit, clearOutput}) => {
         <Button 
           colorScheme="secondary"
           onClick={clearOutput}
+          type="reset"
           >
           Reset
         </Button>
