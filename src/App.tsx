@@ -7,7 +7,7 @@ import { DefaultHorizontalNav } from './components/HorizontalNav.tsx';
 
 const App = () => {
   const [input, setInput] = useState('');
-  const [output, setOutput] = useState<string[]>([]);
+  const [output, setOutput] = useState<Array<{name: string, sub: string}>>([]);
 
   //Updates output with new component from fetch
   // const addComponent = (components: string[]) => {

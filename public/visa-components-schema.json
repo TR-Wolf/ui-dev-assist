@@ -1,0 +1,23 @@
+{
+    "components": [
+      {
+        "name": "input",
+        "subcomponents": [
+          {
+            "name":"default",
+            "code_blocks":[
+              {
+                "language":"html",
+                "code":"code goes here"
+              },
+              {
+                "language":"typescript",
+                "code":"code goes here"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+
+}

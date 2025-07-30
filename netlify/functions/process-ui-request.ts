@@ -5,7 +5,7 @@ interface UIRequest {
 }
 
 interface UIResponse {
-  components: string[];
+  components: Array<{name: string, sub: string}>;
   message: string;
 }
 
@@ -31,8 +31,17 @@ const handler: Handler = async (event, context) => {
 
     // TODO: Replace this with actual NLP API call
     // For now, we'll return a mock response
-    const components = ["button", "divider", "dropdown-menu"];
-    // const components = ["input"];
+    // const components = ["button", "divider", "dropdown-menu"];
+    
+    const components = [
+        {"name":"input", "sub":"Input with form control"},
+        {"name":"input", "sub":"Input with masked field"}
+    ];
+
+    // const components = [
+    //     {"name":"divider", "sub":"default"},
+    //     {"name":"avatar", "sub":"Small image avatar"}
+    // ];
     
 
     const response: UIResponse = {

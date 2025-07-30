@@ -16,7 +16,7 @@ export const SmallUiIconButton = () => {
 
 
 
-const CodeContainer = ({query}) => {
+const CodeContainer = ({query, sub}: {query: string, sub: string}) => {
   const [code, setCode] = useState('code');
   //Fetch data from Visa Product Design System Website
   useEffect(() => {
@@ -26,7 +26,7 @@ const CodeContainer = ({query}) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({query}),
+        body: JSON.stringify({query, sub}),
         // body: JSON.stringify({ input }),
       }).then(response =>{
         if (!response.ok) {
@@ -42,7 +42,7 @@ const CodeContainer = ({query}) => {
     } catch (err) {
       console.error('Error processing UI request:', err);
     }
-  },[query]);
+  },[query, sub]);
   
 
 
