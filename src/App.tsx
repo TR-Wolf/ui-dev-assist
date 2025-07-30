@@ -3,7 +3,6 @@ import './App.css';
 import InputDiv from './components/InputDiv.tsx';
 import OutputDiv from './components/OutputDiv.tsx';
 import { DefaultHorizontalNav } from './components/HorizontalNav.tsx';
-import CodeContainer from './components/CodeContainer.tsx';
 
 
 const App = () => {
@@ -11,26 +10,38 @@ const App = () => {
   const [output, setOutput] = useState<string[]>([]);
 
   //Updates output with new component from fetch
-  const addComponent = (code: string) => {
-      const newOutput = [code];
-      setOutput(newOutput);
-  }
+  // const addComponent = (components: string[]) => {
+  //     setOutput(components);
+  // }
   
-
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  //Form Events
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    //Temp Mock API call
-    const filePath = '/passwordInput.txt'
-    fetch(filePath)
-        .then(r => r.text())
-        .then(addComponent)
-        .catch((err) => console.error('Error loading code:', err));
+    
+    try {
+      const response = await fetch('/.netlify/functions/process-ui-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ input }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setOutput(data.components);
+    } catch (err) {
+
+      console.error('Error processing UI request:', err);
+    }
   };
 
-  const clearOutput = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const clearOutput = () => {
     setInput('');
-    setOutput([]); // should we reset output here?
+    setOutput([]);
   }
 
   return (
@@ -46,6 +57,7 @@ const App = () => {
         <OutputDiv 
           output={output}
         />
+        
       </header>
     </div>
   );
