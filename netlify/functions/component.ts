@@ -11,7 +11,7 @@ const componentData =
             "name":"default",
             "code_blocks":[
               {
-                "language":"typescript",
+                "language":"Typescript",
                 "code":"import { Input, InputContainer, Label, Utility } from '@visa/nova-react';\n\n// TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react\nconst id = 'input-default';\n\nexport const DefaultInput = () => {\n  return (\n    <Utility vFlex vFlexCol vGap={4}>\n      <Label htmlFor={id}>Label (required)</Label>\n      <InputContainer>\n        <Input aria-required=\"true\" id={id} type=\"text\" />\n      </InputContainer>\n    </Utility>\n  );\n};"
               }
             ]
@@ -20,7 +20,7 @@ const componentData =
             "name":"Input with masked field",
             "code_blocks":[
               {
-                "language":"typescript",
+                "language":"Typescript",
                 "code":"import { VisaPasswordHideTiny, VisaPasswordShowTiny } from '@visa/nova-icons-react';\nimport { Button, Input, InputContainer, Label, Utility } from '@visa/nova-react';\nimport { useState } from 'react';\n\n// TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react\nconst id = 'input-mask-button';\n\nexport const MaskButtonInput = () => {\n  const [showPassword, setShowPassword] = useState(false);\n\n  return (\n    <Utility vFlex vFlexCol vGap={4}>\n      <Label htmlFor={id}>Label (required)</Label>\n      <InputContainer>\n        <Input aria-required=\"true\" defaultValue=\"password\" id={id} type={showPassword ? 'text' : 'password'} />\n        <Button\n          aria-label={showPassword ? 'hide text' : 'show text'}\n          buttonSize=\"small\"\n          colorScheme=\"tertiary\"\n          iconButton\n          onClick={() => setShowPassword(!showPassword)}\n        >\n          {showPassword ? <VisaPasswordHideTiny /> : <VisaPasswordShowTiny />}\n        </Button>\n      </InputContainer>\n    </Utility>\n  );\n};"
               }
             ]
@@ -29,7 +29,7 @@ const componentData =
             "name":"Input with form control",
             "code_blocks":[
               {
-                "language":"typescript",
+                "language":"Typescript",
                 "code":"import { Button, Input, InputContainer, Label, Utility } from '@visa/nova-react';\nimport { FormEvent } from 'react';\n\n// TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react\nconst id = 'input-form-control';\n\nexport const CustomFormInput = () => {\n  const onSubmit = (event: FormEvent<HTMLFormElement>) => {\n    event.preventDefault();\n    const formData = new FormData(event.currentTarget);\n    const query = formData.get(id);\n    alert(`${query} submitted!`);\n  };\n  return (\n    <form onSubmit={onSubmit}>\n      <Utility vFlex vFlexCol vGap={4}>\n        <Label htmlFor={id}>Label (required)</Label>\n        <InputContainer>\n          <Input aria-required=\"true\" id={id} name={id} type=\"text\" />\n        </InputContainer>\n      </Utility>\n      <Utility vFlex vFlexRow vGap={8} vMarginTop={16}>\n        <Button type=\"submit\">Submit</Button>\n        <Button colorScheme=\"secondary\" type=\"reset\">\n          Reset\n        </Button>\n      </Utility>\n    </form>\n  );\n};"
               }
             ]
@@ -43,7 +43,7 @@ const componentData =
             "name":"default",
             "code_blocks":[
               {
-                "language":"typescript",
+                "language":"Typescript",
                 "code":"import { Divider } from '@visa/nova-react';\n\nexport const DefaultDivider = () => {\n  return <Divider />;\n};"
               }
             ]
@@ -57,7 +57,7 @@ const componentData =
             "name":"Small image avatar",
             "code_blocks":[
               {
-                "language":"typescript",
+                "language":"Typescript",
                 "code":"import { Avatar } from '@visa/nova-react';\n\n/// This is the base url for where your site is deployed. `import.meta.env.BASE_URL` is the environment variable used to import the base url for Vite. Change this import to match your build tool's base url.\nconst BASE_URL = import.meta.env.BASE_URL;\nconst user = 'Alex Miller';\n\nexport const SmallImageAvatar = () => {\n  return <Avatar alt={user} small tag=\"img\" src={BASE_URL + '/alex-miller-stock.png'} />;\n};"
               }
             ]

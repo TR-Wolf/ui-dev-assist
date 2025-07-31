@@ -108,7 +108,7 @@ const CodeContainer = ({ query, sub }: { query: string, sub: string }) => {
         </UtilityFragment>
         <AccordionPanel style={{ width: '100%', overflowX: 'auto', padding: 0, margin: 0 }}>
           <SyntaxHighlighter
-            language={lang}
+            language={lang.toLowerCase()}
             style={dracula}
             showLineNumbers={true} // Enable line numbers
             wrapLongLines={true}
