@@ -76,7 +76,7 @@ const CodeContainer = ({ query, sub }: { query: string, sub: string }) => {
               <span className="v-typography-headline-3 code-heading">
           {name}
           <div className="logo-button-wrapper">
-            <Link noUnderline element={<a href={visaUrl} target="_blank" />}>
+            <Link noUnderline element={<a href={visaUrl} target="_blank" rel="noreferrer" aria-label="View component on Visa Design System" />}>
               <VisaLinkLow />
             </Link>
           </div>
@@ -97,6 +97,8 @@ const CodeContainer = ({ query, sub }: { query: string, sub: string }) => {
                   onClick={handleCopy}
                   className="copy-button"
                   style={{ pointerEvents: 'auto' }}
+                  onMouseEnter={(e) => e.stopPropagation()}
+                  onMouseLeave={(e) => e.stopPropagation()}
                 >
                   <VisaCopyHigh />
                 </Button>
@@ -104,7 +106,7 @@ const CodeContainer = ({ query, sub }: { query: string, sub: string }) => {
             </UtilityFragment>
           </AccordionHeading>
         </UtilityFragment>
-        <AccordionPanel style={{ width: '100%', overflowX: 'auto' }}>
+        <AccordionPanel style={{ width: '100%', overflowX: 'auto', padding: 0, margin: 0 }}>
           <SyntaxHighlighter
             language={lang}
             style={dracula}
@@ -115,7 +117,18 @@ const CodeContainer = ({ query, sub }: { query: string, sub: string }) => {
               width: '100%',
               maxWidth: '100%',
               overflow: 'auto',
-              margin: 0
+              margin: 0,
+              padding: '16px',
+              boxSizing: 'border-box',
+              borderRadius: 0,
+              border: 'none'
+            }}
+            codeTagProps={{
+              style: {
+                whiteSpace: 'pre-wrap',
+                fontSize: '14px',
+                lineHeight: '1.5'
+              }
             }}
           >
             {code}

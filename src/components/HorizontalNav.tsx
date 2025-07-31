@@ -1,16 +1,9 @@
+// @flow
 import React from 'react';
+
 import {
-    autoUpdate,
-    offset,
-    FloatingFocusManager,
-    useClick,
-    useFloating,
-    useInteractions,
-    useDismiss,
-} from '@floating-ui/react';
-import {
-    VisaChevronDownTiny,
-    VisaChevronUpTiny,
+    // VisaChevronDownTiny,
+    // VisaChevronUpTiny,
     VisaCloseTiny,
     VisaMenuLow,
 } from '@visa/nova-icons-react';
@@ -18,42 +11,51 @@ import {
     Button,
     Divider,
     DropdownButton,
-    DropdownMenu,
     Link,
-    Listbox,
-    ListboxItem,
+    // Divider,
+    // DropdownMenu,
+    // Listbox,
+    // ListboxItem,
     Nav,
     NavAppName,
     Tab,
-    TabSuffix,
+    // TabSuffix,
     Tabs,
     Typography,
     Utility,
     UtilityFragment,
     VisaLogo,
 } from '@visa/nova-react';
-import { CSSProperties, useState } from 'react';
-
+import { useState } from 'react';
+// import {
+//     autoUpdate,
+//     offset,
+//     FloatingFocusManager,
+//     useClick,
+//     useFloating,
+//     useInteractions,
+//     useDismiss,
+// } from '@floating-ui/react';
 // TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react
 const id = 'UIDevAssist-horizontal-nav';
 
-const label3SubItems = [
-    {
-        tabLabel: 'Saved Query Name 1',
-        id: `${id}-label-3-sub-item-0`,
-        href: './horizontal-navigation',
-    },
-    {
-        tabLabel: 'Saved Query Name 2',
-        id: `${id}-label-3-sub-item-1`,
-        href: './horizontal-navigation',
-    },
-];
+// const label3SubItems = [
+//     {
+//         tabLabel: 'Saved Query Name 1',
+//         id: `${id}-label-3-sub-item-0`,
+//         href: './horizontal-navigation',
+//     },
+//     {
+//         tabLabel: 'Saved Query Name 2',
+//         id: `${id}-label-3-sub-item-1`,
+//         href: './horizontal-navigation',
+//     },
+// ];
 
 export const DefaultHorizontalNav = () => {
-    const [mobileLabel3MenuOpen, setMobileLabel3MenuOpen] = useState(false);
+    // const [mobileLabel3MenuOpen, setMobileLabel3MenuOpen] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [label3Open, setLabel3Open] = useState(false);
+    // const [label3Open, setLabel3Open] = useState(false);
 
     // For dropdown menus in the horizontal nav, we use floating UI for
     // -opening
@@ -65,24 +67,24 @@ export const DefaultHorizontalNav = () => {
 
 
     // floating-ui setup for the label3 tab dropdown
-    const {
-        context: label3FloatingContext,
-        floatingStyles: label3FloatingStyles,
-        refs: label3FloatingRefs,
-    } = useFloating({
-        middleware: [offset(8)],
-        open: label3Open,
-        onOpenChange: setLabel3Open,
-        placement: 'bottom-start',
-        whileElementsMounted: autoUpdate,
-    });
+    // const {
+    //     context: label3FloatingContext,
+    //     floatingStyles: label3FloatingStyles,
+    //     refs: label3FloatingRefs,
+    // } = useFloating({
+    //     middleware: [offset(8)],
+    //     open: label3Open,
+    //     onOpenChange: setLabel3Open,
+    //     placement: 'bottom-start',
+    //     whileElementsMounted: autoUpdate,
+    // });
 
-    const clickLabel3Ref = useClick(label3FloatingContext);
-    const dismissLabel3Menu = useDismiss(label3FloatingContext);
-    const { getReferenceProps: getLabel3ReferenceProps, getFloatingProps: getLabel3FloatingProps } = useInteractions([
-        clickLabel3Ref,
-        dismissLabel3Menu,
-    ]);
+    // const clickLabel3Ref = useClick(label3FloatingContext);
+    // const dismissLabel3Menu = useDismiss(label3FloatingContext);
+    // const { getReferenceProps: getLabel3ReferenceProps, getFloatingProps: getLabel3FloatingProps } = useInteractions([
+    //     clickLabel3Ref,
+    //     dismissLabel3Menu,
+    // ]);
 
     const onToggleMobileMenu = () => {
         setMobileMenuOpen(!mobileMenuOpen);
@@ -135,8 +137,7 @@ export const DefaultHorizontalNav = () => {
                         <nav aria-label="Label for horizontal default example">
                             <UtilityFragment vGap={4}>
                                 <Tabs>
-
-                                    <Tab>
+                                    {/* <Tab>
                                         <DropdownButton
                                             aria-expanded={label3Open}
                                             aria-controls={label3Open ? `${id}-label-dropdown-menu` : undefined}
@@ -185,7 +186,7 @@ export const DefaultHorizontalNav = () => {
                                                 </DropdownMenu>
                                             </FloatingFocusManager>
                                         )}
-                                    </Tab>
+                                    </Tab> */}
 
                                     <Tab>
                                         <Button
@@ -210,10 +211,10 @@ export const DefaultHorizontalNav = () => {
                     id={`${id}-mobile-menu`}
                     orientation="vertical"
                 >
-                    <Tabs orientation="vertical">
                         {/* TODO Save and Load Stretch Goal
                             Update this code to contain Load feature for every saved query */}
-
+                    <Tabs orientation="vertical">
+{/*
                         <Tab>
                             <Button
                                 aria-expanded={mobileLabel3MenuOpen}
@@ -241,6 +242,7 @@ export const DefaultHorizontalNav = () => {
                             )}
                         </Tab>
                         <Divider dividerType="decorative"></Divider>
+                        */}
                         <Tab>
                             <Button
                                 buttonSize="large"
@@ -248,7 +250,7 @@ export const DefaultHorizontalNav = () => {
                                 element={<a href="https://design.visa.com/">Visa Product Design System</a>}
                             />
                         </Tab>
-                    </Tabs>
+                    </Tabs> 
                 </Nav>
             </UtilityFragment>
         </div>

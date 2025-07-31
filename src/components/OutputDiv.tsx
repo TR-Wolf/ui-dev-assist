@@ -9,11 +9,15 @@ const OutputDiv = ({ output }: { output: Array<{name: string, sub: string}> }) =
 
     return (
         <div className="output-div">
-            {
-            output.map((component, index) => 
-                renderCodeContainer(component, index)
-            )
-            }
+            {output.length > 0 ? (
+                output.map((component, index) => 
+                    renderCodeContainer(component, index)
+                )
+            ) : (
+                <div className="placeholder-message">
+                    <span>Code will appear here</span>
+                </div>
+            )}
         </div>
     );
 };
