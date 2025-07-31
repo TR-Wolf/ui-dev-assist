@@ -75,6 +75,8 @@ interface UIRequest {
 interface UIResponse {
     code: string;
     message: string;
+    name: string;
+    language: string;
 }
 const baseUrl = "https://design.visa.com/components/";
 
@@ -173,11 +175,14 @@ const handler: Handler = async (event, context) => {
             };
         }
 
-        const code = subcomponent.code_blocks[0].code;
+        const codeBlock = subcomponent.code_blocks[0];
+        const code = codeBlock.code;
 
         const response: UIResponse = {
             code: code,
             message: 'Component generated successfully',
+            name: subcomponent.name,
+            language: codeBlock.language,
         };
 
         return {
