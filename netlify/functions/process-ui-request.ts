@@ -9,6 +9,35 @@ interface UIResponse {
   message: string;
 }
 
+// Simple function to generate components based on input
+function generateComponentsFromInput(input: string): Array<{name: string, sub: string}> {
+  const lowerInput = input.toLowerCase();
+  const components: Array<{name: string, sub: string}> = [];
+  
+  if (lowerInput.includes('form')) {
+    components.push({"name":"input", "sub":"Input with form control"});
+  }
+  if (lowerInput.includes('login')) {
+    components.push( {"name":"input", "sub":"Input with masked field"});
+  }
+  if (lowerInput.includes('remember')) {
+    components.push( {"name":"radio", "sub":"Radio button with label"});
+  }
+  if (lowerInput.includes('divide')) {
+    components.push( {"name":"divider", "sub":"default"});
+  }
+  if (lowerInput.includes('avatar')) {
+    components.push( {"name":"avatar", "sub":"Small image avatar"});
+  }
+
+  if (components.length === 0){
+    components.push({"name":"No components found", "sub":"nothing"});
+  }
+  
+  
+  return components;
+}
+
 const handler: Handler = async (event, context) => {
   // Handle CORS
   const headers = {
@@ -29,19 +58,8 @@ const handler: Handler = async (event, context) => {
       };
     }
 
-    // TODO: Replace this with actual NLP API call
-    // For now, we'll return a mock response
-    // const components = ["button", "divider", "dropdown-menu"];
-    
-    const components = [
-        {"name":"input", "sub":"Input with form control"},
-        {"name":"input", "sub":"Input with masked field"}
-    ];
-
-    // const components = [
-    //     {"name":"divider", "sub":"default"},
-    //     {"name":"avatar", "sub":"Small image avatar"}
-    // ];
+    // Generate components based on input keywords
+    const components = generateComponentsFromInput(body.input);
     
 
     const response: UIResponse = {

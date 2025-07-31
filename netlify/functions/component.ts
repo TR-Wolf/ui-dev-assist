@@ -37,6 +37,20 @@ const componentData =
         ]
       },
       {
+        "name": "radio",
+        "subcomponents": [
+          {
+            "name":"Radio button with label",
+            "code_blocks":[
+              {
+                "language":"typescript",
+                "code":"import { Label, Radio, Utility } from '@visa/nova-react';\r\n\r\n// TIP: Customize this ID, pass it as a prop, or auto-generate it with useId() from @react\r\nconst id = 'default-radio';\r\n\r\nexport const DefaultRadio = () => {\r\n  return (\r\n    <Utility vAlignItems=\"center\" vFlex vGap={2}>\r\n      <Radio id={id} name={id} />\r\n      <Label htmlFor={id}>Label</Label>\r\n    </Utility>\r\n  );\r\n};"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "name": "divider",
         "subcomponents": [
           {
@@ -59,6 +73,20 @@ const componentData =
               {
                 "language":"Typescript",
                 "code":"import { Avatar } from '@visa/nova-react';\n\n/// This is the base url for where your site is deployed. `import.meta.env.BASE_URL` is the environment variable used to import the base url for Vite. Change this import to match your build tool's base url.\nconst BASE_URL = import.meta.env.BASE_URL;\nconst user = 'Alex Miller';\n\nexport const SmallImageAvatar = () => {\n  return <Avatar alt={user} small tag=\"img\" src={BASE_URL + '/alex-miller-stock.png'} />;\n};"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "No components found",
+        "subcomponents": [
+          {
+            "name":"nothing",
+            "code_blocks":[
+              {
+                "language":"any",
+                "code":"Code for an existing component would appear here."
               }
             ]
           }
